@@ -1,29 +1,26 @@
 class BankAccount:
 
-    def set_details(self, name, balance):
+    def __init__(self, name, balance):
         self.name = name
-        self.balance = balance
+        self.__balance = balance
 
     def get_balance(self):
-        return f"{self.name} has {self.balance} dollars."
+        return f"{self.name} has {self.__balance} dollars."
 
     def deposit(self, amount):
-        self.balance += amount
-        return self.balance
+        self.__balance += amount
+        return self.__balance
 
     def withdraw(self, amount):
-        if self.balance < amount:
+        if self.__balance < amount:
             return "Insufficient funds"
         else:
-            self.balance -= amount
-            return self.balance
+            self.__balance -= amount
+            return self.__balance
 
 
 # create account
-adonys_bank = BankAccount()
-
-# set account details
-adonys_bank.set_details("Adonys", 0)
+adonys_bank = BankAccount("Adonys", 100)
 
 # get account balance
 print(adonys_bank.get_balance())
